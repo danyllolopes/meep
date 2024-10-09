@@ -1,38 +1,52 @@
-import useFetch from "../Hooks/useFetch"
+import useFetch from "../Hooks/useFetch";
 import { NavLink } from "react-router-dom";
-import { formatPrice } from "../util/formatPrice";
+import { formatPrice } from "../Util/formatPrice";
+import Title from "../Components/Title";
+import Card from "../Components/Card";
+import Img from "../Components/Img";
+import List from "../Components/List";
 
 type IProducts = {
   id: number;
-  name: string,
+  name: string;
   description: string;
   price: number;
   image: string;
-}
+};
+
+const defaultStyle: React.CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+};
 
 const Products = () => {
-  const { data, loading } = useFetch<IProducts[]>('http://localhost:3001/products', { method: 'GET' });
+  const { data } = useFetch<IProducts[]>(
+    "http://localhost:3001/products",
+    { method: "GET" }
+  );
 
   if (!data) return null;
   // if (loading) return
 
   return (
-    <nav>
-      <ul className="product-list">
+    <>
+      <Title text="Produtos" />
+      <Card>
         {data.map(({ id, name, price, image }: IProducts) => (
-          <NavLink to={`/product/${id}`} key={id} className="product-link">
-            <li className="product-card" key={id}>
-              <img src={image} alt={name} className="product-image" />
-              <div className="product-info">
-                <span className="product-name">{name}</span>
-                <span className="product-price">{formatPrice(price)}</span>
+          <NavLink to={`/product/${id}`} key={id}>
+            <List key={id}>
+              <Img src={image} alt={name} />
+              <div style={{ ...defaultStyle }}>
+                <span>{name}</span>
+                <span>{formatPrice(price)}</span>
               </div>
-            </li>
+            </List>
           </NavLink>
         ))}
-      </ul>
-    </nav>
-  )
-}
+      </Card>
+    </>
+  );
+};
 
-export default Products
+export default Products;
