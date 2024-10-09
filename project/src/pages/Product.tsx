@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom'
 import useFetch from '../hooks/useFetch';
 import { IProducts } from '../types/ProductType';
 import Title from '../components/Header';
-
 import { formatPrice } from '../utils/formatPrice';
 import { Avatar, Box, Button, IconButton, TextField, Typography } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
@@ -13,7 +12,6 @@ const imgStyle: React.CSSProperties = {
   height: 230,
   objectFit: 'cover',
   borderRadius: '0',
-  marginRight: 'var(--gap)',
 };
 
 const Product = () => {
@@ -22,7 +20,7 @@ const Product = () => {
     { method: "GET" });
 
   if (!data) return null;
-  
+
   return (
     <>
       <Title title='Produto' backButton />
@@ -34,7 +32,7 @@ const Product = () => {
           </Box>
           <TextField name="observacoes" label="Observações" multiline rows={3} fullWidth/>
           <Box  pt={2} display="flex">
-            <Box display="flex" alignItems="center">
+            <Box display="flex" alignItems="center" mr={1}>
               <IconButton>
                     <AddIcon />
                 </IconButton>
