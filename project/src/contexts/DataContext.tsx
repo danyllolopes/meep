@@ -1,6 +1,6 @@
 import React from "react";
-import { IProducts } from "../Types/ProductType";
-import useFetch from "../Hooks/useFetch";
+import { IProducts } from "../types/ProductType";
+import useFetch from "../hooks/useFetch";
 
 type IDataContext = {
   data: IProducts[] | null;
