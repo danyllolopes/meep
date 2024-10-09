@@ -5,14 +5,8 @@ import Title from "../Components/Title";
 import Card from "../Components/Card";
 import Img from "../Components/Img";
 import List from "../Components/List";
-
-type IProducts = {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-};
+import OrderCart from "../Components/OrderCart";
+import { IProducts } from "../Types/ProductType";
 
 const defaultStyle: React.CSSProperties = {
   display: "flex",
@@ -31,7 +25,7 @@ const Products = () => {
 
   return (
     <>
-      <Title text="Produtos" />
+      <Title text="Catalago" />
       <Card>
         {data.map(({ id, name, price, image }: IProducts) => (
           <NavLink to={`/product/${id}`} key={id}>
@@ -45,6 +39,7 @@ const Products = () => {
           </NavLink>
         ))}
       </Card>
+      <OrderCart />
     </>
   );
 };
