@@ -5,3 +5,7 @@ export type IProducts = {
   price: number;
   image: string;
 };
+
+export type ISale = IProducts & {
+  qtd: number;
+};

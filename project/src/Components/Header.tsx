@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   title: string
-  backButton?: boolean
+  backButton?: boolean,
 }
 
 const Header = ({ title, backButton}: HeaderProps) => {

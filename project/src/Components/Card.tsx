@@ -18,12 +18,12 @@ interface CardProps  {
   id: number,
   image: string,
   name: string,
-  price: number
+  price: number,
 }
 
 const Card = ({ id, image, name, price}: CardProps) => {
   return (
-    <NavLink to={`/product/${id}`} key={id}>
+    <NavLink to={`/product/${id}`}>
       <Box key={id} component="li" style={{...defaultStyle}}>
         <Avatar src={image} alt={name} sx={{width: 60, height: 60, borderRadius: "var(--gap-s)"}} />
         <Box ml="var(--gap-s)" display="flex" flexDirection="column" justifyContent="center">

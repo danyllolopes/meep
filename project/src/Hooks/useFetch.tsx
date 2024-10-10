@@ -18,12 +18,12 @@ function useFetch<T>(url: RequestInfo | URL, options?: RequestInit) {
       try {
         const response = await fetch(url, {
           signal,
-          ...optionsRef.current
+          ...optionsRef.current,
         });
 
         if (!response.ok) throw new Error(`Error: ${response.status}`);
 
-        const json = await response.json() as T;
+        const json = (await response.json()) as T;
         if (!signal.aborted) setData(json);
       } catch (error) {
         if (!signal.aborted && error instanceof Error) {
@@ -37,7 +37,7 @@ function useFetch<T>(url: RequestInfo | URL, options?: RequestInit) {
 
     return () => {
       controller.abort();
-    }
+    };
   }, [url]);
 
   return { data, loading, error };

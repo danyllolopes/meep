@@ -4,9 +4,9 @@ import Products from './pages/Products';
 import Orders from './pages/Orders';
 import Product from './pages/Product';
 import { createTheme, ThemeProvider } from '@mui/material';
+import { DateContextProvider } from './contexts/DataContext';
 
 const App = () => {
-
   const theme = createTheme({
     typography: {
       fontFamily: `"Sora", "Roboto"`,
@@ -17,12 +17,14 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Products />} />
-          <Route path='/product/:id' element={<Product />} />
-          <Route path='/orders' element={<Orders />} />
-        </Routes>
-    </BrowserRouter>
+        <DateContextProvider>
+          <Routes>
+            <Route path='/' element={<Products />} />
+            <Route path='/product/:id' element={<Product />} />
+            <Route path='/orders' element={<Orders />} />
+          </Routes>
+        </DateContextProvider>
+      </BrowserRouter>
     </ThemeProvider>
   )
 }
