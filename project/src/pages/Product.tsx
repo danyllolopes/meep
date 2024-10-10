@@ -1,7 +1,8 @@
-import { NavLink, useParams } from "react-router-dom";
+import {useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import { IProducts } from "../types/ProductType";
 import Title from "../components/Header";
+import OrderCart from "../components/OrderCart";
 import { formatPrice } from "../utils/formatPrice";
 import {
   Avatar,
@@ -27,7 +28,7 @@ const imgStyle: React.CSSProperties = {
 
 const Product = () => {
   const { handleAddProduct, handleRemoveProduct, getProductQuantity } = useData();
-
+  const navigate = useNavigate()
   const { id } = useParams();
   const { data, loading } = useFetch<IProducts>(`http://localhost:3001/products/${id}`, {
     method: "GET",
@@ -47,9 +48,12 @@ const Product = () => {
     <>
       <Title title="Produto" backButton />
       <Avatar src={data.image} alt={data.name} sx={{ ...imgStyle }} />
-      <Box pl={2} pr={2} pt={1} pb={1}>
+      <Box pl={2} pr={2} pb={1}>
         <Box mt={2} mb={2}>
-          <Typography variant="body1" fontWeight={500}>
+        <Typography variant="h6" fontWeight={500}>
+            {data.name}
+          </Typography>
+          <Typography variant="body1" fontWeight={400}>
             {data.description}
           </Typography>
           <Typography variant="h6" mt={1}>
@@ -83,15 +87,15 @@ const Product = () => {
               <RemoveIcon />
             </IconButton>
           </Box>
-          <Button fullWidth variant="contained">
-            <NavLink to='/orders'>
-              Adicionar
-            </NavLink>
+          <Button fullWidth variant="contained" onClick={() => navigate("/orders")}>
+            Adicionar
           </Button>
         </Box>
       </Box>
+      <OrderCart />
     </>
   );
 };
 
 export default Product;
+ 

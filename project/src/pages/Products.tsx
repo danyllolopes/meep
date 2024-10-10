@@ -26,9 +26,9 @@ const Products = () => {
     <>
       <Title title="Catalago" />
       <Container>
-        {data?.map(({ id, name, price, image }: IProducts) => (
+        {data?.map(({ id, name, price, image ,qtd }: IProducts) => (
           <NavLink key={id} to={`/product/${id}`}>
-            <Card id={id} name={name} price={price} image={image} key={id} />
+            <Card id={id} name={name} price={price} image={image} key={id} qtd={qtd}/>
           </NavLink>
         ))}
       </Container>

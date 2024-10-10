@@ -10,14 +10,14 @@ const OrderCart = () => {
 
   return (
     <NavLink to="/orders">
-      <Box p={3} bgcolor="#F7F8F5" display="flex" justifyContent="space-between" position="sticky" bottom={0}>
+      <Box p={2} bgcolor="#F7F8F5" display="flex" justifyContent="space-between" position="sticky" bottom="0px">
         <Box display="flex" alignItems="center">
           <FastfoodIcon />
-          <Typography variant="body2" fontWeight={500} ml="var(--gap-s)">{getTotalProductQuantity()}</Typography>
+          <Typography variant="body2" fontWeight={500} ml="var(--gap-s)">{getTotalProductQuantity}</Typography>
         </Box>
         <Box display="flex" alignItems="center">
           <ShoppingCartIcon />
-          <Typography variant="body2" fontWeight={500} ml="var(--gap-s)">{formatPrice(getTotalPrice())}</Typography>
+          <Typography variant="body2" fontWeight={500} ml="var(--gap-s)">{formatPrice(getTotalPrice)}</Typography>
         </Box>
       </Box>
     </NavLink>

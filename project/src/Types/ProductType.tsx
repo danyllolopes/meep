@@ -4,6 +4,7 @@ export type IProducts = {
   description: string;
   price: number;
   image: string;
+  qtd: number;
 };
 
 export type ISale = IProducts & {

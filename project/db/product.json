@@ -2,6 +2,7 @@
   "products": [
     {
       "id": 1,
+      "qtd": 1,
       "name": "Cheeseburger Classic",
       "description": "Pão brioche, carne bovina, queijo cheddar, alface, tomate e maionese especial.",
       "price": 19.99,
@@ -9,6 +10,7 @@
     },
     {
       "id": 2,
+      "qtd": 1,
       "name": "Double Bacon Burger",
       "description": "Dois hambúrgueres de carne bovina, bacon crocante, queijo cheddar, picles e molho barbecue.",
       "price": 24.99,
@@ -16,6 +18,7 @@
     },
     {
       "id": 3,
+      "qtd": 1,
       "name": "Chicken Burger",
       "description": "Filé de frango grelhado, queijo prato, alface, tomate e maionese de ervas.",
       "price": 18.50,

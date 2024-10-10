@@ -12,8 +12,8 @@ type IDataContext = {
   handleAddProduct: (newProduct: IProducts) => void;
   handleRemoveProduct: (id: number) => void;
   getProductQuantity: (id: number) => number;
-  getTotalProductQuantity: () => number;
-  getTotalPrice: () => number;
+  getTotalProductQuantity: number;
+  getTotalPrice: number;
   products: ISale[];
 };
 
@@ -36,17 +36,17 @@ export const DateContextProvider = ({ children }: React.PropsWithChildren) => {
     removeProduct(id, setProducts);
   };
 
-  const getProductQuantity = (id: number) => {
+  const getProductQuantity = React.useCallback((id: number) => {
     return productQuantity(id, products);
-  };
+  },[ products]);
 
-  const getTotalProductQuantity = () => {
+  const getTotalProductQuantity = React.useMemo(() => {
     return totalProductQuantity(products);
-  };
+  },[products]);
 
-  const getTotalPrice = () => {
+  const getTotalPrice = React.useMemo(() => {
     return totalPrice(products);
-  };
+  },[products]);
 
   return (
     <DataContext.Provider

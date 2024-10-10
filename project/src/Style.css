@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 html {
-  --color-1: #F7F8F5;
-  --color-2: linear-gradient(135deg, #4aeadc 0%, #9778d1 20%, #cf2aba 40%, #ee2c82 60%, #fb6962 80%, #fef84c 100%);
+  --color-1: #F7F8F5; 
   --color-3: #000;
   --gap-s: 0.625rem;
   --gap: 1.25rem;
